@@ -15,9 +15,14 @@ $('.controls').hide();
 $('.loading').hide();
 
 $("#tweet").click(function(event) {
-  $('.loading').show();
+  event.preventDefault();
+  searchTweets();
+});
+
+function searchTweets() {
 
   event.preventDefault();
+  $('.loading').show();
   $(".index").hide();
   $(".small-nav").show();
 
@@ -34,13 +39,14 @@ $("#tweet").click(function(event) {
       var photosArray = [];
       if(reply.statuses.length == 0){
         $('.nohay').html("No hay imagenes!");
+        $('.loading').hide();
       }
       else{
         for (var i = 0; i < reply.statuses.length; i++) {
           let tweet = reply.statuses[i];
           if(tweet.extended_entities && tweet.extended_entities.media[0].type == "photo") {
             let urlImg = tweet.extended_entities.media[0].media_url_https;
-            
+
             if(!photosArray.includes(urlImg)){
               if(tweet.extended_entities.media.length > 0){
                 let json = {
@@ -56,6 +62,10 @@ $("#tweet").click(function(event) {
         for (var i = 0; i < photosArray.length; i++) {
           $('.loading').hide();
           $(".carousel").show();
+          // $("#tweetC").click(function(event) {
+          //   event.preventDefault();
+          //   searchTweets();
+          // });
           $('.d-block').css({
             "width": "900",
             "height":"550"
@@ -71,7 +81,7 @@ $("#tweet").click(function(event) {
       }
     },
   );
-});
+};
 
 //icons usage
 $('.fa-picture-o').click(function(event){
