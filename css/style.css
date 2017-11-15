@@ -2,6 +2,14 @@ body{
 	background-color: rgba(145, 237, 209, 0.8);
 }
 
+.titulo {
+	position: absolute;
+	left: 100px;
+	font-size: 30px;
+	color: #605b59;
+	font-family: 'Pacifico', cursive;
+}
+
 h3{
 	font-weight: bold;
 	color:#605b59;
@@ -55,6 +63,12 @@ button>i>.fa>.fa-question{
 }
 #footerIndex {
  	margin-top: 18%;
+ }
+
+.loading{
+	 width: 100px;
+	 height: 100px;
+	 margin-top: 10%;
  }
 
  .fa-question {
@@ -182,14 +196,6 @@ footer{
 	margin-right: 5%;
 	margin-top: 0px;
 	margin-left: 8px;
-}
-
-.titulo {
-	position: absolute;
-	left: 100px;
-	font-size: 30px;
-	color: #605b59;
-	font-family: 'Pacifico', cursive;
 }
 
 .card-body {

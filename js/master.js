@@ -12,9 +12,11 @@ $(".small-nav").hide();
 $(".carousel").hide();
 $(".grid").hide();
 $('.controls').hide();
-
+$('.loading').hide();
 
 $("#tweet").click(function(event) {
+  $('.loading').show();
+
   event.preventDefault();
   $(".index").hide();
   $(".small-nav").show();
@@ -28,6 +30,7 @@ $("#tweet").click(function(event) {
     "search_tweets",
     params,
     function (reply) {
+
       var photosArray = [];
       if(reply.statuses.length == 0){
         $('.nohay').html("No hay imagenes!");
@@ -37,18 +40,34 @@ $("#tweet").click(function(event) {
           let tweet = reply.statuses[i];
           if(tweet.extended_entities && tweet.extended_entities.media[0].type == "photo") {
             let urlImg = tweet.extended_entities.media[0].media_url_https;
+            
             if(!photosArray.includes(urlImg)){
               if(tweet.extended_entities.media.length > 0){
-                photosArray.push(urlImg);
-                $(".carousel").show();
-                $('.d-block').css({"width": "900", "height":"550"});
-                $('.d-block').attr('src', urlImg);
-                $('#insert-img').append('<img src="'+urlImg+'">');
-                $('.likes').find('h5').append(tweet.favorite_count);
+                let json = {
+                  src : urlImg ,
+                  likes: tweet.favorite_count
+                };
+                photosArray.push(json);
+
               }
             }
           }
         }
+        for (var i = 0; i < photosArray.length; i++) {
+          $('.loading').hide();
+          $(".carousel").show();
+          $('.d-block').css({
+            "width": "900",
+            "height":"550"
+          });
+          $('.d-block').attr('src', photosArray[0].src);
+          $('.likes').html(photosArray[0].likes);
+        }
+
+        for (var i = 1; i < 6; i++) {
+          $('#insert-img').append('<img id="'+i+'" src="'+photosArray[i].src+'">');
+        }
+
       }
     },
   );
