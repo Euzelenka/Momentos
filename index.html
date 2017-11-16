@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animation.css">
 </head>
 <body>
 
@@ -30,9 +31,9 @@
         <!-- #search-bar-->
         <div class="col-md-8">
           <div class="input-group">
-            <input id="tweet-search" type="text" class="form-control" placeholder="# Busca tu tweet..">
+            <input type="text" class="tweet-search form-control" placeholder="# Busca tu tweet..">
             <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button" id="tweet"><i class="fa fa-search" aria-hidden="true"></i></button>
+              <button class="btn btn-secondary" id="tweet" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
             </span>
           </div>
         </div>
@@ -51,9 +52,9 @@
       <p class="titulo">Momentos</p>
       <div class="container">
         <div class="input-group search-bar">
-          <input id="tweet-search" type="text" class="form-control" placeholder="# Busca tu tweet..">
+          <input type="text" class="tweet-searchC form-control" placeholder="# Busca tu tweet..">
           <span class="input-group-btn">
-            <button class="btn btn-secondary" type="button" id="tweetC"><i class="fa fa-search" aria-hidden="true"></i></button>
+            <button class="btn btn-secondary" type="button" id="tweetC" ><i class="fa fa-search" aria-hidden="true"></i></button>
           </span>
         </div>
       </div>
@@ -76,21 +77,27 @@
           <i class="fa fa-picture-o icon-display" aria-hidden="true"></i>
           <i class="fa fa-th icon-display" aria-hidden="true"></i>
         </div>
-        <div class="col-10" id="content">
-          <div class="likes">
-            <h5><i class="like fa fa-heart-o" aria-hidden="true"></i></h5>
-            </div>
-            <div class="controls">
-              <i class="fa fa-step-backward" aria-hidden="true"></i>
-              <i class="fa fa-play" aria-hidden="true"></i>
-              <i class="fa fa-step-forward" aria-hidden="true"></i>
-              <i class="fa fa-pause" aria-hidden="true"></i>
-              <i class="fa fa-expand" aria-hidden="true"></i>
-            </div>
-            <div class="big-image">
+
+        <div class="big-image" id="content">
+
+              <div class="info">
+                <div class="heart">
+                      <i class="fa fa-heart-o" aria-hidden="true"></i>
+                </div>
+                <div class="likes"></div>
+              </div>
+
+              <div class="controls">
+                <i class="fa fa-step-backward" aria-hidden="true"></i>
+                <i class="fa fa-play" aria-hidden="true" id="play"></i>
+                <i class="fa fa-step-forward" aria-hidden="true"></i>
+                <i class="fa fa-pause" aria-hidden="true"></i>
+                <i class="fa fa-expand" aria-hidden="true" id="expand"></i>
+              </div>
               <img class="d-block" src="">
-            </div>
+
           </div>
+
         </div>
         <!-- #mini-carousel-->
         <div class="row justify-content-md-center mini-carousel">
@@ -149,6 +156,7 @@
                     </div>
                   </div>
                 </div>
+            </div>
                 <!-- END GRID  -->
 
                 <!-- Modal -->
@@ -171,15 +179,16 @@
                   </div>
                 </div>
 
-                <footer id="footerIndex">
-                  <p>Interfaces - Silvina Muñoz | Eugenia Zelenka</p>
-                </footer>
 
-                <script src="js/jquery-3.2.1.js" charset="utf-8"></script>
-                <script src="js/popper.min.js" charset="utf-8"></script>
-                <script src="js/bootstrap.min.js" charset="utf-8"></script>
-                <script src="js/codebird.js" charset="utf-8"></script>
-                <script src="js/master.js" charset="utf-8"></script>
 
               </body>
-              </html>
+    <footer>
+          <p>Interfaces - Silvina Muñoz | Eugenia Zelenka</p>
+    </footer>
+
+    <script src="js/jquery-3.2.1.js" charset="utf-8"></script>
+    <script src="js/popper.min.js" charset="utf-8"></script>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="js/codebird.js" charset="utf-8"></script>
+    <script src="js/master.js" charset="utf-8"></script>
+</html>

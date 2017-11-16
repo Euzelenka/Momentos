@@ -16,25 +16,40 @@ $('.loading').hide();
 
 $("#tweet").click(function(event) {
   event.preventDefault();
-  searchTweets();
+  let params = {
+    q: $(".tweet-search").val(),
+    count: 100
+  };
+  searchTweets(params);
 });
 
-function searchTweets() {
+$("#tweetC").click(function(event) {
+//  $(".container").empty();
+  event.preventDefault();
+  let params = {
+    q: $(".tweet-searchC").val(),
+    count: 100
+  };
+  searchTweets(params);
+});
+
+function searchTweets(params) {
 
   event.preventDefault();
   $('.loading').show();
   $(".index").hide();
   $(".small-nav").show();
 
-  let params = {
-    q: $("#tweet-search").val(),
-    count: 100
-  };
+  // let params = {
+  //   q: $(".tweet-search").val(),
+  //   count: 100
+  // };
 
   cb.__call(
     "search_tweets",
     params,
     function (reply) {
+
 
       var photosArray = [];
       if(reply.statuses.length == 0){
@@ -62,10 +77,8 @@ function searchTweets() {
         for (var i = 0; i < photosArray.length; i++) {
           $('.loading').hide();
           $(".carousel").show();
-          // $("#tweetC").click(function(event) {
-          //   event.preventDefault();
-          //   searchTweets();
-          // });
+
+
           $('.d-block').css({
             "width": "900",
             "height":"550"
@@ -74,14 +87,19 @@ function searchTweets() {
           $('.likes').html(photosArray[0].likes);
         }
 
+        // let imageCarousel = 0;
+        // $('#play').click(function () {
+        //     $('.d-block').attr('src', photosArray[imageCarousel].src);
+        // })
+
         for (var i = 1; i < 6; i++) {
           $('#insert-img').append('<img id="'+i+'" src="'+photosArray[i].src+'">');
         }
-
       }
     },
   );
 };
+
 
 //icons usage
 $('.fa-picture-o').click(function(event){
@@ -118,3 +136,14 @@ $('.big-image').mouseleave(function() {
 $('.controls').mouseover(function() {
   $('.controls').show();
 })
+
+fullscreen = function(e){
+      if (e.webkitRequestFullScreen) {
+        e.webkitRequestFullScreen();
+      } else if(e.mozRequestFullScreen) {
+        e.mozRequestFullScreen();
+      }
+  }
+document.getElementById('expand').onclick = function(){
+    fullscreen(document.getElementById('content'));
+}

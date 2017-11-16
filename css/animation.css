@@ -1,0 +1,9 @@
+@keyframes latidos {
+    from { transform: none; }
+    50% { transform: scale(1.4); }
+    to { transform: none; }
+}
+
+@-webkit-keyframes color {
+  0% {color: red;};
+}

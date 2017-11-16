@@ -2,6 +2,10 @@ body{
 	background-color: rgba(145, 237, 209, 0.8);
 }
 
+.justify-content-md-center {
+	width: 100%;
+}
+
 .titulo {
 	position: absolute;
 	left: 100px;
@@ -55,15 +59,11 @@ button>i>.fa>.fa-question{
 	border-radius: 100px !important;
 }
 
-#tweet{
+#tweetC, #tweet{
 	width: 40px;
 	height: 40px;
 	border-radius: 100px;
-
 }
-#footerIndex {
- 	margin-top: 18%;
- }
 
 .loading{
 	 width: 100px;
@@ -89,8 +89,8 @@ button>i>.fa>.fa-question{
 	}
 }*/
 
-#tweet-search{
-	border-radius: 15px;
+.tweet-search, .tweet-searchC{
+	border-radius: 15px !important;
 	margin-right: 10px;
 }
 
@@ -148,28 +148,52 @@ margin-left: 4px;
 }
 
 
-.fa-expand{
+.fa-expand {
 	font-size: 30px;
  	padding: 10px;
 	color: white;
 }
 
-.big-image{
+#edge {
+	margin-right: 0px;
+}
+
+.d-block {
 	box-shadow:0 0 2em black;
 	margin-left: 20px;
 }
 
-.controls{
-	position: absolute;
-	margin: 450px 0px 0px 250px;
+.heart {
+	animation: 3s color linear infinite;
+	/*display: inline-block;
+	font-size: 150px;
+	text-shadow: 0 0 10px #222,1px 1px  0 #450505;
+	animation: latidos .5s infinite;
+	transform-origin: center;*/
+
+	position: relative;
+	margin: 10px;
+	color: white;
+}
+
+.likes {
+	position: relative;
+	margin: 10px;
+	color: white;
+}
+
+.info {
+	position: relative;
+	top: 545px;
+	width: 100px;
+	left: 30px;
 	background-color: rgba(72, 75, 71, 0.74);
 }
 
-.likes{
+.controls {
 	position: absolute;
-	margin: 450px 0px 0px 40px;
-	width: 200px;
-	color: white;
+	margin: 450px 0px 0px 250px;
+	background-color: rgba(72, 75, 71, 0.74);
 }
 
 .icons{
@@ -183,19 +207,13 @@ footer{
 	margin-top: 20px;
 }
 
-.card{
+.card {
 	margin: 10%;
 	/*transform: rotate(5deg);*/
 }
 
 .page-link {
 	color: #605b59 !important;
-}
-
-.like {
-	margin-right: 5%;
-	margin-top: 0px;
-	margin-left: 8px;
 }
 
 .card-body {
@@ -218,8 +236,4 @@ a>.icon-display{
 
 .grid-img {
 	margin-left: 145px;
-}
-
-#content{
-	margin-top: 30px;
 }
